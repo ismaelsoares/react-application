@@ -1,18 +1,22 @@
 import React from 'react';
-import Input from './input';
-//import Result from './result';
+//import TextAreaComments from './textAreaComments';
+//import DivComment from './divComment';
+//import BtComment from './btComment';
+import FormComment from './formComment';
+import ImageUpload from './imageUpload';
+import Photo from './photo';
 
 let App = React.createClass({
     render(){
     return(
       <div>
-        <Input />
+        <FormComment />
+        <Photo />
       </div>
     );
   }
 });
 export default App;
-
 
 
 

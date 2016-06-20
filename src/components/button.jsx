@@ -1,13 +1,20 @@
 import React from 'react';
-import Input from './input';
 
-let Button = React.createClass({
-  OnButtonClick(e){
-    let valor = this.props.value;
+
+let Button = React.createClass(
+  getInitialState(){
+    like: 'Curtir'
+  },
+  onClickEvent(e){
+    e.preventDefault();
+    this.setState({
+      liked: 'Curtiu';
+    });
   },
   render(){
+    let label = this.setState;
     return(
-      <button onClick={this.OnButtonClick}>Inserir</button>
+      <button onClick={this.onClickEvent}>{label}</button>
     );
   }
 });

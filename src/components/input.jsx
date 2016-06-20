@@ -8,21 +8,25 @@ let Input = React.createClass({
     lista.push(valor);
     this.setState({component: lista})
   },
-  OnRemoveButton(item){
-    lista.splice();
-
+  OnButtonRemove(e){
+    e.preventDefault();
+    let lista = this.state.component;
+    delete lista[e.currentTarget.value];
+    this.setState({ component: lista });
   },
   getInitialState(){
     return({component: [] })
   },
   render(){
+    let self = this;
     return(
       <div>
       <input type="text" ref="inputText" name="inputText" />
-      <button onClick={this.OnButtonClick} value="button1">Inserir</button>
-      <ul>{this.state.component.map(function(item){
-        return (<li>{item}<button onClick={this.OnRemoveButton.item}>Remover</button></li>);
-      })}</ul>
+      <button onClick={this.OnButtonClick}>Inserir</button>
+      <ul>{this.state.component.map(function(item, index){
+        return (<li>{item}<button value={self.state.component.indexOf(item)} onClick={self.OnButtonRemove}>Excluir</button></li>);
+      })}
+      </ul>
       </div>
     );
   }
